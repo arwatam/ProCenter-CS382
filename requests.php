@@ -47,6 +47,7 @@
    
 
         include "db_con.php";
+        $conn=new Users();
         $query = "SELECT * FROM Requests ";
         $result = $conn->query($query);
         $i = 1;

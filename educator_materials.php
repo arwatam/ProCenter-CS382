@@ -45,7 +45,7 @@
 </thead>
 <tbody>
   <?php 
-if ( isset($result->num_rows) && $result->num_rows >0):  
+  if ( isset($result->num_rows) && $result->num_rows >0):  
   foreach ($files as $file): ?>
     <tr>
       <td><?php echo $file['stu_id']; ?></td>

@@ -44,8 +44,9 @@
     <tbody>
   <?php
   include 'db_con.php';
-  $query="select * from `StuSession` WHERE `stuid`='$_SESSION[college_id]'"; // Fetch all the data from the table 
-  $result1 = $conn->query($query);
+  include 'studentAppointment.php';
+  $student=new studentAppointment();
+  $result1 = $student->veiwStuAppointments();
   ?>
   <?php if (isset($result1->num_rows) && $result1->num_rows >0):?>
   <?php  
@@ -60,7 +61,6 @@
            <td><a  data-id=\"".$result['app_no']."\" class='w3-button w3-teal w3-border-teal w3-round-xlarge delete '><i class='fa fa-close  Edit-out-logo-size' ></i> Cancel</a></td> 
            </tr>  
       ";  
-      // <td><a href='db_studelete.php?stuid=".$_SESSION['college_id']."&date=".$result['date']."&time=".$result['time']."' class='w3-button w3-teal w3-border-teal w3-round-xlarge delete'><i class='fa fa-close  Edit-out-logo-size' ></i> Cancel</a></td> 
  }
       
    ?>

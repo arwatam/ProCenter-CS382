@@ -46,28 +46,29 @@
     </thead>
     <tr>
     <?php 
-     include "login_db.php";
+      include "login_db.php";
     ?>
     <?php   
-    include 'db_con.php';
-    $query="select * from eduschedule"; // Fetch all the data 
-    $result1 = $conn->query($query);
-    
+
+      include 'db_con.php';
+      include 'Appointment.php';
+      $educator=new Appointments();
+      $result1 = $educator->eduscheule();
       $i=1;  
+      $id=$_SESSION['college_id'];
         while ($result = $result1->fetch_assoc()) {  
              echo "  
                   <tr class='data'>   
                   <td>".$i++."</td>
-                  <td>".$result['edu_name']."</td> 
-                  <td>".$result['course']."</td>  
-                  <td>".$result['date']."</td>  
-                  <td>".$result['time']."</td> 
+                  <td>".$edu=$result['edu_name']."</td> 
+                  <td>".$course=$result['course']."</td>  
+                  <td>".$date=$result['date']."</td>  
+                  <td>".$time=$result['time']."</td> 
                   <td><a href='db_book.php?stuid=".$_SESSION['college_id']."&edu_name=".$result['edu_name']."&course=".$result['course']."&date=".$result['date']."&time=".$result['time']."' class='w3-button w3-teal w3-border-teal w3-round-xlarge '> <i class='fa fa-plus  Edit-out-logo-size' ></i> Book New Session</a></td> 
-                  </tr>  
+                   
+                  
              ";  
-        }
-                
- ?>
+        }?>
  
     </table>
   </div>

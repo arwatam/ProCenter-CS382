@@ -1,7 +1,7 @@
 <?php   
  include 'login_db.php';  
- $query = "select * from eduschedule WHERE `edu_name`='$_SESSION[name]'";  
- $run = mysqli_query($conn,$query);  
+ include_once("db_con.php");
+
  ?> 
 <html>
 <head>
@@ -55,15 +55,16 @@
     <tr>
       
     <?php
-    
+    include_once('Appointment.php');
+    $appointment=new Appointments();
      if(isset($_POST['submit']))
      {
-       
          $course=$_POST['course'];
          $date=$_POST['date'];
          $time=$_POST['time'];
-         $sql="insert into eduschedule(edu_id,edu_name,course,date,time) values('$_SESSION[college_id]','$_SESSION[name]','$course','$date','$time')";
-         if($conn->query($sql)){
+        //  $sql="insert into eduschedule(edu_id,edu_name,course,date,time) values('$_SESSION[college_id]','$_SESSION[name]','$course','$date','$time')";
+         $sql=$appointment->addAppointment("$_SESSION[college_id]","$_SESSION[name]","$course","$date","$time");
+         if($sql){
            echo "<script>alert('New appointment is added');</script>";
           }
           else
@@ -83,9 +84,7 @@
 
     </tr>
       <?php   
-        include 'db_con.php';
-        $sql = "SELECT * FROM eduschedule";  
-        $result = $conn->query($sql);
+        $result = $appointment->eduscheule();
         if($result){
               if (( isset($result->num_rows) && $result->num_rows >0)) {  
                     while ($row = $result->fetch_assoc()) {  
@@ -102,7 +101,6 @@
               }
           else{ 
               echo "Error in ".$sql." ".$conn->error; }
-          $conn->close();
       ?>   
     </form>
   </table>

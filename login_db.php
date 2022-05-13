@@ -3,16 +3,21 @@
  { 
      session_start(); 
  }  //start the session
-include_once("db_con.php");
+
+// $conn=new Users();
+
 if(isset($_POST['sub']))//check wheather the user click on log in button
 {   
-   
-           
             $userid= $_POST["college_id"];
             $pass= $_POST["password"];
             
-            // $sql=mysqli_query($conn,"SELECT * FROM `login` WHERE `college_id`='$userid' AND `password`='$pass'");
-            $sql = $conn->query("SELECT * FROM `login` WHERE `college_id`='$userid' AND `password`='$pass'", MYSQLI_USE_RESULT);
+
+            //create new object from logIn class
+            include("db_con.php");
+            include_once("signin.php");
+            $conn=new logIn();
+            
+            $sql=$conn->loginquery("$userid","$pass"); //send the id and pass to the method for logging in
             $row = $sql -> fetch_array(MYSQLI_ASSOC);
             if(is_array($row))//The is_array() function checks whether a variable is an array or not.
             {

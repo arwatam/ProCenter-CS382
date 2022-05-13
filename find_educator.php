@@ -22,6 +22,7 @@
 
   <body>
   <?php 
+   
    session_start();
     if (!isset($_SESSION['college_id']))
     header("Location: login.php");
@@ -55,9 +56,10 @@
 
           <?php
             include 'db_con.php';
-            $query="select * from eduschedule"; // Fetch all the data
-            // $result=mysqli_query($conn,$query);
-            $result = $conn->query($query);//oop
+            include 'Appointment.php';
+            $educator=new Appointments();
+            $result = $educator->eduscheule();
+    
             ?>
             <?php if( isset($result->num_rows) && $result->num_rows >0):?>
             <?php  while($array = $result -> fetch_row()): ?>

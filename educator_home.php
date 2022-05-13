@@ -29,6 +29,9 @@
           <!-- -----------------------   END OF JQUERY SCRIPT ------------------------- --> 
   </head>
   <body>
+    <?php  
+    include "db_con.php"
+     ?>
   <?php 
    session_start();
     if (!isset($_SESSION['college_id']))

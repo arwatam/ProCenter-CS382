@@ -1,6 +1,7 @@
 <?php   
 
  include 'db_con.php';  
+ $conn= new db_conn;
  if (isset($_GET['stuid'])) {  
       $id = $_GET['stuid']; 
       $name = $_GET['edu_name'];
@@ -8,7 +9,8 @@
       $date = $_GET['date'];
       $time = $_GET['time']; 
       $query = "insert into StuSession(stuid,eduName,course,date,time) values('$id','$name','$course','$date','$time')"; 
-      $run = $conn->query($query); 
+      $run=mysqli_query($conn->dbh, $query);
+      
       if ($run) {  
          echo "
          <script> 

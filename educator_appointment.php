@@ -44,9 +44,10 @@
     </thead>
     <tbody>
   <?php
-  include 'db_con.php';
-  $query="select * from StuSession where `eduName`='$_SESSION[name]'"; // Fetch all the data from the table
-  $result = $conn->query($query);
+  include('db_con.php');
+  include_once('Appointment.php');
+  $appointment=new Appointments();
+  $result=$appointment->veiwAppointments();
   ?>
   <?php if ( isset($result->num_rows) && $result->num_rows >0): ?>
   <?php while($array = $result -> fetch_array(MYSQLI_NUM)): ?>
@@ -62,7 +63,7 @@
         <td colspan="4" rowspan="1" headers="" class="w3-center">No Appointment is Found</td>
         </tr>
   <?php endif; ?>
-  <?php $result -> free_result(); ?>
+  <?php //$result -> free_result(); ?>
     </tbody>
   </table>
 </div>

@@ -42,8 +42,9 @@
 <!-------------------------------------Start the Form to be an educator-------------------------------------------------->
 <?php 
  include 'db_con.php';  
- $query = "select * from requests";  
- $conn->query($query)
+//  $query = "select * from requests";  
+ include_once('studentAppointment.php');
+ $student=new studentAppointment();
  if(isset($_POST['submit']))
  {
      $fname=$_POST['FN'];
@@ -52,8 +53,8 @@
      $level=$_POST['level'];
      $subject=$_POST['subject'];
      $GPA=$_POST['GPA'];
-     $sql="insert into requests(fname,lname,id,subject,level,GPA) values('$fname','$lname','$id','$subject','$level','$GPA')";
-     if( $conn->query($sql)){
+     $sql=$student->beEducatorRedquest($fname,$lname,$id,$subject,$level,$GPA);
+     if($sql){
        echo "<script>alert('Your Request has been sent.');</script>";
       }
       else
