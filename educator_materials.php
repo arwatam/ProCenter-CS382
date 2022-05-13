@@ -44,7 +44,11 @@
 </tr>
 </thead>
 <tbody>
+
   <?php 
+  
+  
+  
   if ( isset($result->num_rows) && $result->num_rows >0):  
   foreach ($files as $file): ?>
     <tr>
@@ -71,11 +75,9 @@
        
         Upload File <input type="file" name="myfile[]" id="file" multiple required> <br> 
         
-      <?php
-        
-        $query="SELECT * FROM `login` WHERE user_type='student'";
-        // $result1 = mysqli_query($conn, $query);
-        $result1 = $conn->query($query);
+      <?php 
+      $obj= new materials();
+      $result1=$obj->viewStudentID();
       ?>
       Student ID <select name="student" class="w3-input" required>
       <option value="" disabled selected hidden>Select </option>

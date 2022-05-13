@@ -28,6 +28,8 @@ class Appointments  extends db_conn
      $ret=mysqli_query($this->dbh,"SELECT * FROM eduschedule");
      return $ret;
      }
+
+
 }
 
 

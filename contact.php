@@ -41,8 +41,8 @@
 <!------------------------------------------------Start contact us form--------------------------------------------->
  <?php 
  include 'db_con.php';  
- $query = "select * from contact";  
- $conn->query($query); 
+ include 'signin.php';
+ $obj=new login();
 
  if(isset($_POST['submit']))
  {
@@ -51,8 +51,8 @@
      $id=$_POST['id'];
      $subject=$_POST['subject'];
      $message=$_POST['message'];
-     $sql="insert into contact(fname,lname,id,subject,message) values('$fname','$lname','$id','$subject','$message')";
-     if($conn->query($sql) ){
+     $sql=$obj->contact($fname,$lname,$id,$subject,$message);
+     if($sql) {
        echo "<script>alert('Your message has been sent.');</script>";
       }
       else

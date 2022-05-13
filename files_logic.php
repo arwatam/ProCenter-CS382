@@ -2,14 +2,15 @@
 // connect to the database
 
 include 'login_db.php';
-$s = "SELECT * FROM materials WHERE `id_user`='$_SESSION[college_id]'";
-$result = $conn->query($s);
+include "db_con.php";
+include 'material.php';
+  $st=new materials();
+  $result = $st->SelectEducatorID();
+  $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-$files = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $result2 = $st->SelectStudentID();
+  $f = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
-$l = "SELECT * FROM materials WHERE `stu_id`='$_SESSION[college_id]'";
-$result2 = $conn->query($l);
-$f = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 // Uploads files
 if (isset($_POST['save'])) { // if save button on the form is clicked
@@ -24,16 +25,9 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
         // Upload files and store in database
         if(move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],'uploads/'.$filename)){
 
-                // Image db insert sql
-                $insert = "INSERT into materials (id_user,stu_id,edu_name,name, size, downloads) VALUES ('$_SESSION[college_id]','$studentID','$_SESSION[name]','$filename',now(),1)";
-                if($conn->query($insert)){
-                    echo "<script> 
-                    alert('file has been uploaded successfully');
-                    window.location.href='educator_materials.php'; </script>";
-                    }
-                else{
-                    echo 'Error: '.mysqli_error($conn);
-                    }
+
+         $st->StoreMaterial($studentID,$filename);
+                
         }
         else{
                 echo 'Error in uploading file - '.$_FILES['myfile']['name'][$i].'<br/>';
@@ -45,12 +39,9 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
 if (isset($_GET['file_id'])) {
     $id = $_GET['file_id'];
 
-    // fetch file to download from database
-    $sq = "SELECT * FROM materials WHERE no=$id";
-
-    $result = $conn->query($sq);
-
-    $file = $result->fetch_assoc();
+    $result3 = $st->FetchFile($id);
+    
+    $file = $result3->fetch_assoc();
     $filepath = 'uploads/' . $file['name'];
 
     if (file_exists($filepath)) {
@@ -63,11 +54,7 @@ if (isset($_GET['file_id'])) {
         header('Content-Length: ' . filesize('uploads/' . $file['name']));
         readfile('uploads/' . $file['name']);
 
-        // Now update downloads count
-        $newCount = $file['downloads'] + 1;
-        $updateQuery = "UPDATE materials SET downloads=$newCount WHERE no=$id";
-
-        $conn->query($updateQuery);
+        $download = $st->incrementDownload($id,$file);
         exit;
     }
 }

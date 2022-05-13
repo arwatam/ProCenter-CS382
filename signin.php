@@ -7,5 +7,15 @@
     return $sql;
     }    
 
+    public function contact($fname,$lname,$id,$subject,$message)
+    {
+        $query = "select * from contact";  
+        $this->dbh->query($query); 
+        $sql=mysqli_query($this->dbh,"insert into contact(fname,lname,id,subject,message)
+         values('$fname','$lname','$id','$subject','$message')");
+        return $sql;
+     
+    }
+
 }
 ?>
