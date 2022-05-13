@@ -48,8 +48,11 @@
       </tr>
 <?php
 include 'db_con.php';
-$query="select * from contact"; // Fetch all the data 
-$run = $conn->query($query);
+include 'Admin.php';
+$contact=new Admin();
+$run = $contact->view_contact();
+//$query="select * from contact"; // Fetch all the data 
+//$run = $conn->query($query);
 if (( isset($run->num_rows) && $run->num_rows >0)) {  
   while ($row = $run->fetch_assoc()) {  
 ?>
