@@ -58,7 +58,7 @@
             include 'db_con.php';
             include 'Appointment.php';
             $educator=new Appointments();
-            $result = $educator->eduscheule();
+            $result = $educator->eduSchedule();
     
             ?>
             <?php if( isset($result->num_rows) && $result->num_rows >0):?>

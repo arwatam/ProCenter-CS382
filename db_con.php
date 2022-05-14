@@ -6,10 +6,12 @@
     define('DB_NAME', 'procenterdb');
     class db_conn
     {
+      protected $con;
+
         function __construct()
         {
-        $con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
-        $this->dbh=$con;
+        $this->con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+        $this->dbh=$this->con;
         // Check connection
         if (mysqli_connect_errno())
           {

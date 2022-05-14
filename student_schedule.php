@@ -53,7 +53,7 @@
       include 'db_con.php';
       include 'Appointment.php';
       $educator=new Appointments();
-      $result1 = $educator->eduscheule();
+      $result1 = $educator->eduSchedule();
       $i=1;  
       $id=$_SESSION['college_id'];
         while ($result = $result1->fetch_assoc()) {  

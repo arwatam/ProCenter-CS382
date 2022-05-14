@@ -84,7 +84,7 @@
 
     </tr>
       <?php   
-        $result = $appointment->eduscheule();
+        $result = $appointment->eduSchedule();
         if($result){
               if (( isset($result->num_rows) && $result->num_rows >0)) {  
                     while ($row = $result->fetch_assoc()) {  
@@ -99,8 +99,7 @@
                     }  
                   }  
               }
-          else{ 
-              echo "Error in ".$sql." ".$conn->error; }
+          
       ?>   
     </form>
   </table>

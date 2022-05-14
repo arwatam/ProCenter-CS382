@@ -46,7 +46,7 @@
   include 'db_con.php';
   include 'studentAppointment.php';
   $student=new studentAppointment();
-  $result1 = $student->veiwStuAppointments();
+  $result1 = $student->viewStuAppointments();
   ?>
   <?php if (isset($result1->num_rows) && $result1->num_rows >0):?>
   <?php  
