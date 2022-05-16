@@ -34,11 +34,11 @@
         >
         <div class="w3-dropdown-hover w3-mobile">
           <button
-            class="w3-button w3-hover-none w3-hover-text-pink w3-padding-16"
+            class="w3-button w3-hover-none w3-hover-text-pink w3-padding-16 menu"
           >
             Educator <i class="fa fa-caret-down"></i>
           </button>
-          <div class="w3-dropdown-content w3-bar-block w3-teal">
+          <div class="w3-dropdown-content w3-bar-block w3-teal menus-content">
             <a
               href="find_educator.php"
               class="w3-bar-item w3-button w3-mobile w3-hover-light-grey w3-hover-text-pink"
@@ -52,10 +52,10 @@
           </div>
         </div>
         <div class="w3-dropdown-hover w3-mobile">
-          <button class="w3-button w3-hover-text-pink w3-padding-16 w3-hover-none">
+          <button class="w3-button w3-hover-text-pink w3-padding-16 w3-hover-none menu2">
             Appointment <i class="fa fa-caret-down"></i>
           </button>
-          <div class="w3-dropdown-content  w3-bar-block w3-teal">
+          <div class="w3-dropdown-content  w3-bar-block w3-teal menus-content2">
             <a
               href="student_appointment.php"
               class="w3-bar-item w3-button w3-mobile w3-hover-light-grey w3-hover-text-pink"
@@ -82,3 +82,27 @@
         >
       </nav>
     </header>
+    <script>
+              $(document).ready(function(){
+                $(".menu").click(function(){
+                  // $('.menus-content').toggle();
+                  $('.menus-content').toggle(800);
+                });
+              });
+              $(document).ready(function(){
+                $(".menu2").click(function(){
+                  // $('.menus-content').toggle();
+                  $('.menus-content2').toggle(800);
+                });
+              });
+
+          //     $(document).ready(function(){
+          //     $( "a .color" ).toggle(
+          //     function() {
+          //       $(this).css("color","pink");
+          //     }, function() {
+          //       $( this ).removeClass( "w3-text-pink" );
+          //     }
+          //   );
+          // });
+            </script>

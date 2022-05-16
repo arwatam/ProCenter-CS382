@@ -91,17 +91,17 @@
 
         // add  as an educator
          //$query="select * from eduinformation"; // Fetch all the data 
-         $result1 = $Accept->Edu();
+        //  $result1 = $Accept->Edu();
          //$result1 = $conn->query($query);
          //$queryAdd= "INSERT into eduinformation(id,eduNAME,course) values('$Id','$sName','$subject')";
          //$conn->query($queryAdd);
-         $queryAdd = $Accept->InEdu($Id,$sName,$subject);
+        //  $queryAdd = $Accept->InEdu($Id,$sName,$subject);
 
 
          //change the login type
          //$updateUserType = "UPDATE login SET user_type = 'educator' WHERE college_id='".$user_id."'";
          //$conn->query($updateUserType);
-         $updateUserType = $Accept->ChEdu($user_id);
+         $updateUserType = $Accept->updateUserType($user_id);
 
     }
     if (isset($_POST['sRej']) && intval($_POST['sRej'])) {
@@ -119,7 +119,7 @@
          //change the login type
         // $TypeStudent = "UPDATE login SET user_type = 'student' WHERE college_id='".$user_id."'";
         // $conn->query($TypeStudent);
-        $TypeStudent = $Reject->LoginUpdate($user_id);
+        $TypeStudent = $Reject->TypeStudent($user_id);
 
     }
 ?>

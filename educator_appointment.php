@@ -47,7 +47,7 @@
   include('db_con.php');
   include_once('Appointment.php');
   $appointment=new Appointments();
-  $result=$appointment->viewAppointments();
+  $result=$appointment->veiwAppointments();
   ?>
   <?php if ( isset($result->num_rows) && $result->num_rows >0): ?>
   <?php while($array = $result -> fetch_array(MYSQLI_NUM)): ?>

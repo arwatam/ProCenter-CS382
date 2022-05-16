@@ -25,6 +25,8 @@
                 $(location).attr('href', 'educator_appointment.php');
               });
             }
+           
+          
           </script>
           <!-- -----------------------   END OF JQUERY SCRIPT ------------------------- --> 
   </head>
