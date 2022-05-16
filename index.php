@@ -221,20 +221,18 @@
               Book an Appointment
             </button>
           </div>
-          <br>
-          <br>
+
           <div>
             <div class="w3-container w3-margin">
-              <button  class="w3-btn w3-white w3-border w3-round-xxlarge w3-padding " style=" float: right;" id="ShowCards">
+              <button  class="w3-btn w3-white w3-border w3-round-xxlarge w3-padding " style=" float: left;" id="ShowCards">
                 Show more<span>&#8594;</span>
               </button>
             </div>
-          </div>
-          <div>
+            </div>
+            <div>
+            </div>
+            <div>
          </div>
-         <div>
-         </div>
-          <br><br>
         <!-- -----------------------end of the cards------------------ -->
           <?php
             include 'db_con.php';
