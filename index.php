@@ -17,7 +17,7 @@
             //function to redirect user to Find an Educator
             function redirectFindEdu(){
               $(document).ready(function(){
-                $(location).attr('href', 'find_educator.php');
+                $(location).attr('href', 'student_schedule.php');
               });
             }
 
@@ -34,6 +34,21 @@
               });
             }
 
+            $(document).ready(function(){
+            $('#ShowCards').click(function(){
+              $('.TheCards').show(1000);
+              $('#ShowCards').hide(1000);
+              $('#Back').show(1000);
+
+              });
+            });
+            $(document).ready(function(){
+            $('#Back').click(function(){
+              $('.TheCards').hide(1000);
+              $('#ShowCards').show(1000);
+              $('#Back').hide(1000);
+              });
+            });
           </script>
         
           <!-- -----------------------   END OF JQUERY SCRIPT ------------------------- --> 
@@ -139,29 +154,27 @@
     <!-- ---------------------------------------------- End of website info  part------------------------------------------------------   -->
 
     <!--  ---------------------------------------------- Educator card part------------------------------------------------------ -->
-    <section class="section-margin ">
-      <div class="w3-container w3-center">
-        <h1>Our Educators</h1>
-      </div>
-      <div class="Card-Container  ">
-        <div class="w3-row marg-container">
+
+      <section class="section-margin ">
+        <div class="w3-container w3-center ">
+          <h1>Our Educators</h1>
+        </div>
+        <div class="center">
+          <div class="wrapper">
+            <div class=" box">
+          
+      <!-- -----------------------start of the cards------------------ -->
           <div class="w3-col s4 w3-card-2 w3-center w3-mobile marg-between w3-hover-shadow">
             <header class="w3-container w3-pale-red w3-block">
               <h4 class="w3-padding-4 w3-larg">Ms.siti Haris</h4>
             </header>
 
             <div class="w3-container w3-center">
-              <p>I will assist you with the c/c++ language</p>
+            <p>I will assist you with the web development projects </p>
               <hr />
               <ul>
                 <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
-                  c
-                </li>
-                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
-                  C++
-                </li>
-                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
-                  c#
+                  JS
                 </li>
               </ul>
             </div>
@@ -176,15 +189,9 @@
             </header>
 
             <div class="w3-container w3-center">
-              <p>I will assist you with the web development project</p>
+              <p>I will assist you with the JavaScript such as cs381</p>
               <hr />
               <ul>
-                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
-                  HTML
-                </li>
-                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
-                  CSS
-                </li>
                 <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
                   JS
                 </li>
@@ -194,6 +201,7 @@
               Book an Appointment
             </button>
           </div>
+
 
           <div class="w3-col s4 w3-card-2 w3-center w3-mobile marg-between w3-hover-shadow">
             <header class="w3-container w3-pale-red w3-block">
@@ -201,7 +209,7 @@
             </header>
 
             <div class="w3-container w3-center">
-              <p>I will assist you with the JavaScript</p>
+            <p>I will assist you with the c/c++ language and java </p>
               <hr />
               <ul>
                 <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
@@ -213,17 +221,71 @@
               Book an Appointment
             </button>
           </div>
+          <br>
+          <br>
+          <div>
+            <div class="w3-container w3-margin">
+              <button  class="w3-btn w3-white w3-border w3-round-xxlarge w3-padding " style=" float: right;" id="ShowCards">
+                Show more<span>&#8594;</span>
+              </button>
+            </div>
+          </div>
+          <div>
+         </div>
+         <div>
+         </div>
+          <br><br>
+        <!-- -----------------------end of the cards------------------ -->
+          <?php
+            include 'db_con.php';
+            include 'Appointment.php';
+            $educator=new Appointments();
+            $result = $educator->eduSchedule();
+    
+            ?>
+            <!-- <section> -->
+            <?php if( isset($result->num_rows) && $result->num_rows >0):?>
+            <?php  while($array = $result -> fetch_row()): ?>
+            <div>
+            <div class=" w3-card-2 w3-center w3-mobile w3-hover-shadow TheCards" style="display:none;" id="another-element">
+                <header class="w3-container w3-pale-red w3-block">
+                  <h3 class="w3-padding-4 w3-larg"><?php echo $array[2];?></h3>
+                </header>
+
+              <div class="w3-container w3-center">
+                <p><?php echo $array[3];?></p>
+                <hr />
+                <ul>
+                  <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red ">
+                  <?php echo $array[4];?>
+                  </li>
+                  <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red ">
+                  <?php echo $array[5];?>
+                  </li>
+                </ul>
+              </div>
+                <button class="w3-button w3-hover-teal w3-block w3-pale-red" onclick="redirectStuAppointment()"> Book an Appointment
+                </button>
+            </div>
+            </div>
+          <!-- <section> -->
+            <?php endwhile; ?>
+            <?php else: ?>
+                  <h3 colspan="4" rowspan="1" headers="" class="w3-center">No Educator is Found</h3>
+            <?php endif; ?>
+            <?php $result -> free_result(); ?>
+           
+
+          
         </div>
       </div>
-      <!-- -------------------------more button part------------------- -->
-      <div class="w3-container w3-margin">
-        <button onclick="redirectFindEdu()" class="w3-btn w3-white w3-border w3-round-xxlarge w3-padding">
-          More<span>&#8594;</span>
-        </button>
-      </div>
+    </div>
     </section>
-    <!-- -------------------------more button part------------------- -->
-
+    <div class="w3-container w3-margin">
+        <button  class="w3-btn w3-white w3-border w3-round-xxlarge w3-padding " style=" float:right; display:none" id="Back">
+        <span>&larr;</span>Show less
+        </button>
+    </div>
     <!--  ---------------------------------------------- End of Educator card part------------------------------------------------------ -->
 
     <!--  ------------------------------------------------ footet part part------------------------------------------------------ -->

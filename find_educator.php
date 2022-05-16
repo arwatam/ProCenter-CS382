@@ -45,11 +45,11 @@
 
   <!--  ---------------------------------------------- Educator card part------------------------------------------------------ -->
 
-     <section class="section-margin ">
+    <section class="section-margin ">
       <div class="w3-container w3-center ">
         <h1>Our Educators</h1>
       </div>
-    <div class="center">
+      <div class="center">
       <div class="wrapper">
         <div class=" box">
           

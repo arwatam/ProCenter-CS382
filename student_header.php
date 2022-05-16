@@ -40,7 +40,7 @@
           </button>
           <div class="w3-dropdown-content w3-bar-block w3-teal menus-content">
             <a
-              href="find_educator.php"
+              href="student_schedule.php"
               class="w3-bar-item w3-button w3-mobile w3-hover-light-grey w3-hover-text-pink"
               >Find an Educator</a
             >
@@ -96,13 +96,4 @@
                 });
               });
 
-          //     $(document).ready(function(){
-          //     $( "a .color" ).toggle(
-          //     function() {
-          //       $(this).css("color","pink");
-          //     }, function() {
-          //       $( this ).removeClass( "w3-text-pink" );
-          //     }
-          //   );
-          // });
             </script>
