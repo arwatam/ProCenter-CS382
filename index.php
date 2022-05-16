@@ -176,6 +176,9 @@
                 <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
                   JS
                 </li>
+                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
+                  Jquery
+                </li>
               </ul>
             </div>
             <button class="w3-button w3-hover-teal w3-block w3-pale-red" onclick="redirectStuAppointment()">
@@ -195,6 +198,9 @@
                 <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
                   JS
                 </li>
+                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
+                 php
+                </li>
               </ul>
             </div>
             <button class="w3-button w3-hover-teal w3-block w3-pale-red" onclick="redirectStuAppointment()">
@@ -213,7 +219,13 @@
               <hr />
               <ul>
                 <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
-                  JS
+                c/c++
+                </li>
+                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
+                  java
+                </li>
+                <li class="w3-button w3-hover-none w3-round-xlarge w3-pale-red">
+                  javaScript
                 </li>
               </ul>
             </div>
