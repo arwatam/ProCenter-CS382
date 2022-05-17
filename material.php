@@ -14,7 +14,7 @@ class materials  extends db_conn
      // function to retrive data in the database, to view student id 
      public function viewStudentID()
     {
-        $this->query="SELECT * FROM `login` WHERE user_type='student'";
+        $this->query="SELECT * FROM `stusession` WHERE `eduName`='$_SESSION[name]'";
         // $result1 = mysqli_query($conn, $query);
         $result1=$this->dbh->query($this->query);
         return $result1;

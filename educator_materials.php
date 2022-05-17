@@ -84,7 +84,7 @@
       <option value="" disabled selected hidden>Select </option>
         <?php while($row2 = $result1 -> fetch_array(MYSQLI_NUM)):;
         ?>
-        <option  value="<?php echo $row2[0];?>"><?php echo $row2[0];?></option>
+        <option  value="<?php echo $row2[1];?>"><?php echo $row2[1];?></option>
         <?php endwhile;?>
       </select>
       <br>

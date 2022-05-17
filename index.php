@@ -45,7 +45,7 @@
             $(document).ready(function(){
             $('#Back').click(function(){
               $('.TheCards').hide(1000);
-              $('#ShowCards').show(1000);
+              $('#ShowCards').show(1000); //show more
               $('#Back').hide(1000);
               });
             });

@@ -4,7 +4,6 @@
  if (isset($_GET['id'])) {  
       $id = $_GET['id'];  
       $query = "DELETE FROM `eduschedule` WHERE id = '$id'";  
-      // $run = $conn->query($query);  
       $run=mysqli_query($conn->dbh, $query);
         if ($run) {  
           header('location:educator_schedule.php'); 
