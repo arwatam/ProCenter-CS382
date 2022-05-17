@@ -50,8 +50,7 @@
         include 'Admin.php';
         $requests=new Admin();
         $result = $requests->view_requests();
-        // $query = "SELECT * FROM Requests ";
-        // $result = $conn->query($query);
+
         $i = 1;
         while ($row = $result->fetch_assoc()) {  
 
@@ -86,39 +85,16 @@
         $user_id = (int) $_POST['sAcc'];
         $Accept=new Admin();
         $appUpdateQuery = $Accept->UpdateQuery($user_id);
-        //$appUpdateQuery = "UPDATE Requests SET status = '1' WHERE id='".$user_id."'";
-        //$conn->query($appUpdateQuery);
-
-        // add  as an educator
-         //$query="select * from eduinformation"; // Fetch all the data 
-        //  $result1 = $Accept->Edu();
-         //$result1 = $conn->query($query);
-         //$queryAdd= "INSERT into eduinformation(id,eduNAME,course) values('$Id','$sName','$subject')";
-         //$conn->query($queryAdd);
-        //  $queryAdd = $Accept->InEdu($Id,$sName,$subject);
-
-
-         //change the login type
-         //$updateUserType = "UPDATE login SET user_type = 'educator' WHERE college_id='".$user_id."'";
-         //$conn->query($updateUserType);
+      
          $updateUserType = $Accept->updateUserType($user_id);
 
     }
     if (isset($_POST['sRej']) && intval($_POST['sRej'])) {
         $user_id = (int) $_POST['sRej'];
         $Reject=new Admin();
-        //$appUpdateQuery = "UPDATE Requests SET status = '0' WHERE id='".$user_id."'";
-        //$conn->query($appUpdateQuery);
+
         $appUpdateQuery = $Reject->UpdateQuery2($user_id); 
-
-        // $querydelete= "delete from eduinformation where id ='".$Id."'";
-        // $conn->query($querydelete);
         $querydelete = $Reject->RejDelete($Id);
-
-
-         //change the login type
-        // $TypeStudent = "UPDATE login SET user_type = 'student' WHERE college_id='".$user_id."'";
-        // $conn->query($TypeStudent);
         $TypeStudent = $Reject->TypeStudent($user_id);
 
     }

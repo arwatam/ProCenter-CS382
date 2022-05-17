@@ -68,10 +68,10 @@
             programming center!
           </p>
           <br />
-          <button  onclick="redirectCreateSch()" class="w3-teal w3-border w3-round-xlarge w3-padding">
+          <button  onclick="redirectCreateSch()" class="w3-btn w3-teal w3-border w3-round-xlarge w3-padding">
             Create Schedule
           </button>   
-          <button  onclick="redirectViewApp()" class="w3-white w3-border w3-round-xlarge w3-padding">
+          <button  onclick="redirectViewApp()" class="w3-btn w3-white w3-border w3-round-xlarge w3-padding">
             View Appointment
           </button>
        

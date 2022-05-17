@@ -86,7 +86,7 @@
       <?php   
         $result = $appointment->eduSchedule();
         if($result){
-              if (( isset($result->num_rows) && $result->num_rows >0)) {  
+              if (( $result->num_rows >0)) {  
                     while ($row = $result->fetch_assoc()) {  
                         echo "  
                               <tr class='data'>   
@@ -150,7 +150,7 @@
     var del_id = $(this).data('id');
     var parent = $(this).parent().parent();
     $.ajax({
-            type:"POST",
+            type:"GET",
             url:"db_edudelete.php?id="+del_id,
             data:"id="+del_id,
             success:function(data) {

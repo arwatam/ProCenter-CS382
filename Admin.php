@@ -22,18 +22,6 @@ class Admin extends db_conn
   return $ret;
   }
 
-  // public function Edu()
-  // {
-  // $ret=mysqli_query($this->dbh,"select * from eduinformation");
-  // return $ret;
-  // }
-
-  // public function InEdu($Id,$sName,$subject)
-  // {
-  // $ret=mysqli_query($this->dbh,"INSERT into eduinformation(id,eduNAME,course) values('$Id','$sName','$subject')");
-  // return $ret;
-  // }
-
   public function updateUserType($user_id)
   {
   $ret=mysqli_query($this->dbh,"UPDATE login SET user_type = 'educator' WHERE college_id='".$user_id."'");
