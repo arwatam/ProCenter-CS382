@@ -57,7 +57,8 @@
       <td><?php echo $file['name']; ?></td>
       <td><?php echo floor($file['size'] / 1000) . ' KB'; ?></td>
       <td><?php echo $file['downloads']; ?></td>
-      <td><a href="student_materials.php?file_id=<?php echo $file['no'] ?>" class="w3-btn w3-round w3-teal ">Download</a></td>
+      <td colspan="2"  rowspan="1" ><a href="student_materials.php?file_id=<?php echo $file['no'] ?>" class="w3-button w3-teal w3-border-teal w3-round-xlarge ">Download</a>
+         <button data-id=<?php echo $file['no']?> class='w3-button w3-teal w3-border-teal w3-round-xlarge delete '><i class='fa fa-close  Edit-out-logo-size' ></i> Cancel</button></td> 
     </tr>
   <?php endforeach;?>
  
@@ -129,5 +130,29 @@
       </div>
     </footer>
     <!--  ---------------------------------------------- End of footer part part------------------------------------------------------ -->
-</body>
+    <script>
+
+// for deleting new appointment
+$(document).ready(function(){
+$(".delete").click(function(){
+  var del_id = $(this).data('id');
+  var parent = $(this).parent().parent();
+  $.ajax({
+          type:"GET",
+          url:"db_delmaterial.php?no="+del_id,
+          data:"no="+del_id,
+          success:function(data) {
+              if(data) { // Sucess
+                parent.slideUp(100,function() {
+                parent.remove();}); 
+              } 
+              else { // Error }
+              }
+          }
+        });
+      });
+});
+</script>
+
+  </body>
 </html>

@@ -19,20 +19,6 @@ class studentAppointment  extends db_conn
       }
      }
 
-    //  public function bookAppointment($id,$name,$course,$date,$time)
-    //  {
-   
-    //     $query = "insert into StuSession(stuid,eduName,course,date,time) values('$id','$name','$course','$date','$time')"; 
-    //     $run=$this->dbh->query($query);
-    //     if($run){
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-            
-    // }
-
     // function to retrive data from be an educator page. add new request 
     public function beEducatorRedquest($fname,$lname,$id,$subject,$level,$GPA)
     {
